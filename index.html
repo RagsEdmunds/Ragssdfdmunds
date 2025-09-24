@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Green Diamond SIA — Transporta atbalsta risinājumi</title>
+  <meta name="description" content="Green Diamond SIA – operatīvs atbalsts pārvadājumiem: maršrutu plānošana, kravu dokumentēšana, muitas koordinācija, laika slotu rezervācijas, KPI dēļi un datu integrācijas.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1941; --bg-2:#0b1333; --brand:#3bd186; --brand-2:#22a86a;
+      --text:#f2f6ff; --muted:#c6d1ff; --card:#122055; --line:#22306a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--text);line-height:1.6}
+    a{color:var(--brand)}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(15,25,65,.7);border-bottom:1px solid var(--line);z-index:10}
+    .nav{max-width:1120px;margin:auto;display:flex;align-items:center;gap:24px;padding:12px 20px}
+    .nav .logo{font-weight:800;letter-spacing:.4px}
+    .nav a{color:var(--text);text-decoration:none;opacity:.9}
+    .nav a:hover{opacity:1}
+    .grid{max-width:1120px;margin:auto;padding:48px 20px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:72px 20px 36px}
+    .hero h1{font-size:42px;line-height:1.15;margin:.1em 0}
+    .hero p{font-size:18px;color:var(--muted)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{background:var(--brand);color:#061526;font-weight:700;padding:12px 18px;border-radius:12px;border:0;cursor:pointer;text-decoration:none;display:inline-block}
+    .btn.alt{background:transparent;border:1px solid var(--line);color:var(--text)}
+    section{scroll-margin-top:80px}
+    h2{font-size:28px;margin:0 0 8px}
+    .sub{color:var(--muted);margin-bottom:22px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);padding:18px;border:1px solid var(--line);border-radius:14px}
+    .card h3{margin:0 0 6px}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:step}
+    .step{background:var(--card);border:1px solid var(--line);padding:18px;border-radius:14px;position:relative}
+    .step:before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:-14px;background:var(--brand-2);color:#061526;font-weight:800;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:3px solid var(--bg)}
+    .photo{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .photo img{width:100%;height:320px;object-fit:cover;display:block}
+    form{display:grid;gap:12px}
+    input,textarea,select{background:#0d1a46;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:12px;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    footer{border-top:1px solid var(--line);margin-top:36px}
+    .foot{max-width:1120px;margin:auto;padding:28px 20px;display:grid;gap:8px}
+    .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:10px}
+    .kpi .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+    .muted{color:var(--muted)}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    /* ===== Modal styles ===== */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(6,15,38,.6);
+      display:none;align-items:center;justify-content:center;z-index:50;
+    }
+    .modal{
+      width:min(520px,92vw);background:var(--card);border:1px solid var(--line);
+      border-radius:16px;padding:22px 20px;box-shadow:0 20px 50px rgba(0,0,0,.35)
+    }
+    .modal h3{margin:0 0 6px}
+    .modal p{margin:0 0 14px;color:var(--muted)}
+    .modal .row{display:flex;gap:10px;justify-content:flex-end}
+    .hidden{display:none}
+    .close-x{
+      position:absolute;top:10px;right:14px;background:transparent;border:0;color:var(--muted);font-size:22px;cursor:pointer
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">Green Diamond SIA</div>
+    <div style="margin-left:auto;display:flex;gap:16px;">
+      <a href="#sakums">Sākums</a>
+      <a href="#par-mums">Par mums</a>
+      <a href="#pakalpojumi">Risinājumi</a>
+      <a href="#foto1">Foto</a>
+      <a href="#kontakti">Kontakti</a>
+    </div>
+  </nav>
+</header>
+
+<main id="sakums" class="grid hero">
+  <div>
+    <h1>Gudrs atbalsts pārvadājumiem: no dokumenta līdz vārtiem</h1>
+    <p>Mēs apvienojam transporta operāciju atbalstu ar datu risinājumiem – maršrutu plānošana, kravu dokumentēšana, laika slotu rezervācijas, muitas koordinācija un KPI pārvaldība vienā saprotamā procesā.</p>
+    <div class="cta">
+      <a class="btn" href="#pakalpojumi">Skatīt risinājumus</a>
+      <a class="btn alt" href="#forma">Saņemt piedāvājumu</a>
+    </div>
+
+    <div class="kpi">
+      <div class="box"><strong>24/7</strong><br><span class="muted">dispečeru atbalsts</span></div>
+      <div class="box"><strong>15+</strong><br><span class="muted">ES tirgi un UK</span></div>
+      <div class="box"><strong>2h</strong><br><span class="muted">vid. reaģēšanas laiks</span></div>
+      <div class="box"><strong>99,2%</strong><br><span class="muted">laicīgu slotu ievērošana</span></div>
+    </div>
+  </div>
+  <div class="photo" aria-hidden="true">
+    <img src="https://ottl.az/wp-content/uploads/2022/12/modes-of-transportation-web-1.jpg" alt="Multimodāla loģistika – auto, dzelzceļš un jūra">
+  </div>
+</main>
+
+<section id="par-mums" class="grid">
+  <h2>Mēs ne tikai “palīdzam” – mēs operējam</h2>
+  <p class="sub">Par Green Diamond SIA</p>
+  <div class="card">
+    <p><strong>Green Diamond SIA</strong> ir Latvijā reģistrēts transporta atbalsta pakalpojumu sniedzējs, kas fokusējas uz operatīvu kravu kustības vadību Eiropā. Mūsu komanda apvieno ekspeditoru pieredzi ar IT pieeju, lai mazinātu stāvēšanu un dokumentu kļūdas. Strādājam ar pārvadātājiem, ražotājiem un 3PL/4PL partneriem, pārņemot “grūto” – EKAER/T1/TIR koordinatorus, rampu slotu rezervācijas, atbilstības pārbaudes un PUDO (pick-up/drop-off) komunikāciju. Ieviešam datu paneļus un SOP, kas padara procesu caurredzamu gan vadībai, gan autovadītājiem.</p>
+  </div>
+</section>
+
+<section id="pakalpojumi" class="grid">
+  <h2>Risinājumi, kas kustina kravu</h2>
+  <p class="sub">Trīs pamatpaketes ar skaidru rezultātu</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Operatīvā dispečēšana un slotu vadība</h3>
+      <p>Reāllaika komunikācija ar rampām un termināliem, laika slotu rezervācijas/maiņas, ETA sinhronizācija ar autovadītājiem un klientiem. Mērķis – <em>0</em> soda maksas par nokavētām iekraušanām un minimāla dīkstāve pie vārtiem.</p>
+    </div>
+    <div class="card">
+      <h3>Dokumentu & atbilstības centrs</h3>
+      <p>CMR, pavadzīmes, T1/TIR/EX deklarācijas koordinācija, ADR/LQ pārbaudes un pārvadātāju atbilstības audits. Izmantojam kontrolsarakstus un e-parakstu plūsmas, lai dokuments ir pareizs vēl pirms auto izbrauc.</p>
+    </div>
+    <div class="card">
+      <h3>Datu dēļi un integrācijas</h3>
+      <p>KPI paneļi (OTIF, On-Dock, dwell time), integrācijas ar TMS/WMS/Telemātiku (API/EDI), brīdinājumi par novirzēm. Jūsu vadība redz vienu patiesības avotu bez manuālas Excel apkopes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="grid" id="foto1">
+  <h2>Kāpēc sadarbība ar mums ir izdevīga</h2>
+  <p class="sub">Trīs priekšrocības, kas jūtamas pirmajā mēnesī</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Laiks = nauda</h3>
+      <p>Mazinām gaidīšanu pie vārtiem, apvienojot slotu pārvaldību un šoferu informēšanu vienā plūsmā. Vidēji ietaupām 25–40 min uz katru iekraušanu/izkraušanu.</p>
+    </div>
+    <div class="card">
+      <h3>Nulles papīru haoss</h3>
+      <p>Dokumentu trūkums un nepareizie kodi ir biežākais OTIF ienaidnieks. Mūsu kontrolsaraksti un automātiskie atgādinājumi izķer kļūdas pirms tās kļūst par kavējumu.</p>
+    </div>
+    <div class="card">
+      <h3>Zaļā domāšana praksē</h3>
+      <p>Maršrutu konsolidācija, tukšgaitas samazināšana un dīkstāves KPI ļauj reāli mazināt CO₂ tonnas uz sūtījumu – ne tikai prezentācijā.</p>
+    </div>
+  </div>
+
+  <div class="photo" style="margin-top:18px">
+    <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?q=80&w=1600&auto=format&fit=crop" alt="Rampas slotu koordinācija un doku plūsma">
+  </div>
+</section>
+
+<section class="grid" id="foto2">
+  <h2>Kā mēs strādājam – trīs soļi līdz stabilai plūsmai</h2>
+  <p class="sub">Procesu karte</p>
+  <div class="steps">
+    <div class="step">
+      <h3>1) Ieviešana un SOP</h3>
+      <p>Apkopojam maršrutus, rampu noteikumus un dokumentu prasības, izveidojam standarta operāciju procedūras, definējam KPI un brīdinājumus.</p>
+    </div>
+    <div class="step">
+      <h3>2) Operatīvā vadība</h3>
+      <p>Dispečējam, rezervējam/rediģējam slotus, koordinējam muitas un iekraušanas prasības, atjaunojam ETA un informējam iesaistītos.</p>
+    </div>
+    <div class="step">
+      <h3>3) Mērījumi un uzlabojumi</h3>
+      <p>Nedēļas KPI dēļi un saknes cēloņu analīze (RCA). Ierosinām izmaiņas grafikā/maršrutos, lai noturētu OTIF un samazinātu dīkstāvi.</p>
+    </div>
+  </div>
+
+  <div class="cards" style="margin-top:18px">
+    <div class="card">
+      <h3>Pakalpojums tuvplānā: “Slot Manager+”</h3>
+      <p>Dedikēts koordinators jūsu iekraušanas punktiem, kas pieskata rampu kalendārus vairākās sistēmās, seko līdzi atšifrējumiem un pārbauda iepriekšējās kravas prasības. Iekļauts sms/e-mail brīdinājums šoferiem, ja punkts maina noteikumus.</p>
+    </div>
+    <div class="card">
+      <h3>Mērķis un misija</h3>
+      <p>Mūsu mērķis ir padarīt atbalsta funkciju par izaugsmes dzinēju – mazāk stāvēšanas, mazāk papīru, vairāk prognozējamības. Misija – savienot cilvēkus, procesus un datus vienā ritmā.</p>
+    </div>
+  </div>
+</section>
+
+<section id="forma" class="grid">
+  <h2>Sazināsimies</h2>
+  <p class="sub">Aizpildiet formu – atbildēsim ar konkrētu piedāvājumu un ieviešanas grafiku.</p>
+  <!-- Добавил id для формы -->
+  <form id="contactForm">
+    <div class="two">
+      <input type="text" name="vards" placeholder="Vārds, Uzvārds*" required>
+      <input type="email" name="epasts" placeholder="Darba e-pasts*" required>
+    </div>
+    <div class="two">
+      <input type="text" name="kompanija" placeholder="Uzņēmums / filiāle">
+      <select name="pakalpojums">
+        <option value="">Interesējošais pakalpojums</option>
+        <option>Dispečēšana un slotu vadība</option>
+        <option>Dokumentu un atbilstības centrs</option>
+        <option>Datu dēļi un integrācijas</option>
+      </select>
+    </div>
+    <textarea name="zinojums" placeholder="Īsi aprakstiet maršrutus, apjomus un šī brīža izaicinājumus (piem., rampu aizkaves, dokumentu kļūdas u.c.)"></textarea>
+    <label class="muted"><input type="checkbox" required> Piekrītu, ka sniegtie dati tiks izmantoti, lai sagatavotu piedāvājumu.</label>
+    <button class="btn" type="submit">Nosūtīt pieprasījumu</button>
+    <p class="muted">Alternatīvi rakstiet uz: <a href="mailto:info@greendiamondlat.eu">info@greendiamondlat.eu</a></p>
+  </form>
+</section>
+
+<section id="kontakti" class="grid">
+  <h2>Kontakti</h2>
+  <p class="sub">Green Diamond SIA</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Juridiskā adrese</h3>
+      <p>2 k-9-53 Nakotnes iela, Gulbene, Gulbenes novads, LV-4401, Latvija</p>
+    </div>
+    <div class="card">
+      <h3>E-pasts</h3>
+      <p><a href="mailto:info@greendiamondlat.eu">info@greendiamondlat.eu</a></p>
+    </div>
+    <div class="card">
+      <h3>Darba laiks</h3>
+      <p>P.-Pk. 08:00–18:00 (dispečers 24/7 pēc līguma)</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="muted">© <script>document.write(new Date().getFullYear())</script> Green Diamond SIA. Visas tiesības aizsargātas.</div>
+    <div class="muted">Darbības joma: Other Support Activities for Transportation (transporta atbalsta pakalpojumi).</div>
+  </div>
+</footer>
+
+<!-- ===== Modal markup (всплывающее окно) ===== -->
+<div id="thanksModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+  <div class="modal">
+    <button class="close-x" type="button" aria-label="Aizvērt" id="modalClose">×</button>
+    <h3 id="thanksTitle">Paldies! Pieprasījums saņemts</h3>
+    <p>Mēs ar jums sazināsimies 1 darba dienas laikā.</p>
+    <div class="row">
+      <button class="btn alt" type="button" id="modalOk">Aizvērt</button>
+      <a class="btn" href="#pakalpojumi">Skatīt pakalpojumus</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Script: обработчик формы и показ модалки ===== -->
+<script>
+  (function(){
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('thanksModal');
+    const closeBtns = [document.getElementById('modalClose'), document.getElementById('modalOk')];
+
+    function openModal(){
+      modal.style.display = 'flex';
+      // переносим фокус на кнопку закрытия для доступности
+      closeBtns[1].focus();
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+    }
+
+    // Закрытие по клику на фон
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal) closeModal();
+    });
+    // Кнопки «Закрыть»
+    closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+    // Esc
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+
+    // Имитация успешной отправки формы
+    form.addEventListener('submit', function(e){
+      e.preventDefault();           // не отправляем по сети
+      // здесь можно сделать fetch(...) на ваш бэкенд, а затем:
+      openModal();
+      form.reset();                 // очистка полей
+    });
+  })();
+</script>
+
+</body>
+</html>
